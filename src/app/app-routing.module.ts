@@ -29,6 +29,14 @@ const routes: Routes = [
   {
     path: 'movie',
     component: MoviesComponent,
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthChildGuard],
+    children: [
+      {
+        path: 'movie',
+        component: MoviesComponent
+      }
+    ]
   },
   {
     path: 'movie/:id',
